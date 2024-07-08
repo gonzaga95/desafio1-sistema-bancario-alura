@@ -12,10 +12,10 @@ public class Sistema {
         System.out.println("Saldo atual: "+saldo);
         System.out.println("####################################");
 
-        int opcao = 0;
+        int opcaoSelecionada = 0;
         Scanner Scanner = new Scanner(System.in);
 
-        while (opcao != 9) {
+        while (opcaoSelecionada != 9) {
             System.out.println("""
                     Selecione uma opção:
                     
@@ -24,7 +24,7 @@ public class Sistema {
                     [3] Retirar valor
                     [9] Sair
                     """);
-            int opcaoSelecionada = Scanner.nextInt();
+            opcaoSelecionada = Scanner.nextInt();
             switch (opcaoSelecionada) {
                 case 1:
                     System.out.println("Seu saldo é de: R$ " + saldo);
@@ -43,8 +43,11 @@ public class Sistema {
                         saldo -= valorRetirada;
                     }
                     break;
+                case 9:
+                    continue;
                 default:
-                    throw new IllegalStateException("Opção inválida: " + opcaoSelecionada);
+                    System.out.println("Opção inválida");
+                    break;
             }
         }
     }
